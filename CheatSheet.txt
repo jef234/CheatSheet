@@ -1,0 +1,505 @@
+VS Code
+ Open File                  : ctrl + p
+ Open Terminal              : ctrl + `
+ Switch b/w tabs            : alt + tab
+ Explorer Resize            : ctrl + b
+ Html basic format          : in vscode type "doc" + tab
+
+Git
+
+Init                        : git init
+Status                      : git status
+Add all files(To staging)   : git add .
+Short commit(To local)      : git commit -m "<message>"
+Add repository              : git remote add origin https://github.com/jef234/lite_chat.git
+Update repository           : git remote set-url origin https://github.com/jef234/lite_chat.git
+Push(To remote)              : git push -u origin <master/branch>
+-u sets default push
+git push -u origin RCANALYTIC-34420
+git push -u origin RCANALYTIC-39895
+Pull(From remote)           : git pull origin <master/branch>
+Min Config
+Config name                 : git config --global user.name "<name>"
+Config email                : git config --global user.email "<email>"
+(Config priority: -local > -global > -system)
+View config                 : git config --list
+View log                    : git log || git log -oneline
+Diff                        : git diff <filename> (with staged)
+                              git diff <filename> --stagged (with local commit)
+                              git diff <filename> --stagged HEAD(~<number>) (Recent commits)
+                              git diff <filename> <hash code> (commit hash code)
+                              git diff <branch1>..<branch2>
+Revert                      : git checkout (<HEAD(~<number>)> || <version code>) <filename>
+Reset (Undo staging)        : git reset <filename>
+Delete file                 : git rm <filename> (local + staging area)
+                              git rm --cached <filename> (only staging area)
+Ignore files                : touch .gitignore. echo "list of files || extentions || directories" >> .gitignore
+Rename file                 : git mv <filename> <newfilename>
+ssh -T git@github.com       : check logged in user
+(Git Bash)
+
+Branching
+List all branches           : git branch
+                              git branch -a (included non checkedout branches)
+Create a new branch         : git branch <new branchname>
+Switch between branches     : git checkout
+Create and switch to branch : git checkout -b <new branchname>
+Clone branch                : git clone <clonne url> -b <branchname>
+git clone https://github.cerner.com/rcanalytics/analytics_VR_automation.git -b RCANALYTIC-34420
+git clone https://github.cerner.com/rcanalytics/analytics_VR_automation.git -b RCANALYTIC-39895
+
+Reset Credentials: In Windows 10 with Git
+Remove/update related Credentials stored in Windows Credentials in >>Control Panel\All Control Panel Items\Credential Manager
+
+NPM Install
+ NPM Init                   : npm init
+ Jquery                     : npm i jquery
+ Bootstrap                  : npm install bootstrap
+ Popper                     : npm install popper.js --save
+
+
+Dotnet
+                              cd DatingApp.API 
+ Start                      : dotnet watch run
+ Stop                       : ctrl + C
+ Constructor                : ctor
+ Property                   : prop
+ Quick Fix                  : ctrl + .
+
+ Migration
+  Add                       : dotnet ef migrations add <migration name>
+  Update                    : dotnet ef database update
+
+
+Java
+ 
+ Install JDK                : https://www.oracle.com/java/technologies/javase-downloads.html
+ Set Environment variable   : Computer-> properties-> advanced-> Environment Variables-> System variables-> path-> new-> <bin dir of new jdk installed> -> ok -> ok
+ Check version              : java - version
+ Eclipse                    : https://www.eclipse.org/downloads/packages/
+
+
+
+Typescript
+ Install                    : npm install -g typescript
+ Transpile typescript to js : tsc <filename>.ts
+
+Angular
+
+Angular install             : npm install -g @angular/cli@<latest>/<version number(7.2.0)>
+Angular uninstall           : npm uninstall -g @angular/cli
+                              npm cache clean
+Version check               : ng version
+Init                        : ng new <new project name>
+                              ng new sample-app
+                              cd DatingApp-SPA
+Start                       : ng serve --port 3400 --open  / npm start
+
+Switch b/w ts & html        : alt + u
+Switch b/w spec ts & html   : alt + u
+Auto formate                : Shift + Alt + f
+Generate routing files      : ng generate module app-module --module=app 
+Generate component          : ng g c <path with file name> (-flat without new folder)
+Generate module/model       : create a <name>.module.ts inside modules folder
+                            or
+                              ng g m <name>
+Generate Server             : create a <name>.service.ts inside services folder and add as provider in app.module.ts
+                            or
+                              ng g s <name>
+Generate pipe               : 
+Build                       : ng build (--prod) --base-href <url>
+                    Example : ng build --base-href https://jef234.github.io/product-management-angular/
+                              ng build --base-href https://jef234.github.io/Quiz/
+Publish                     : ngh --dir dist/<app-name>
+                    Example : ngh --dir dist/sample-app
+                              ngh --dir dist/product-management-app
+                              ngh --dir dist/Quiz/
+Github Publish Final Step   : change source to gh-pages branch
+Install plugin
+Bootstrap                   : npm install --save bootstrap
+Jquery                      : npm install --save jquery
+                              Goto project dir->angular.json
+                              Navigate to styles
+                              Add "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                              Navigate to scripts
+                              Add "node_modules/jquery/dist/jquery.js", "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+
+React
+
+Git init                    : git init
+NPM Install                 : npm init
+
+React global install        : npm install -g create-react-app
+React global uninstall      : npm uninstall -g create-react-app
+Create app                  : npm init react-app <my-app>
+                             npx create-react-app <my-app>
+
+React & Dom Install         : npm install react react-dom
+Webpack install             : npm install webpack webpack-dev-server webpack-cli --save
+Babel install               : npm install babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin --save-dev
+
+Start                       : Start
+
+
+Node
+
+Check node version          : node --version`
+Check npm version           : npm --version
+Run file                    : node <filename>
+Run server/nodemon          : npm run serve (In package.json add "serve": "nodemon server.js")
+
+Create & Run a              : json-server --watch <name>.json --port <port number>
+Mock json-server   
+Lock current module version : npm shrinkwrap
+Details of modules version  : npmvet -r inlinetable
+Mismatch of modules version : npmvet -r blessed
+Initialize npm              : npm init 
+Add mongodb                 : npm install mongodb
+Add mongoose data modeller  : npm install mongoose
+
+Express
+Install                     : npm install express-generator -g
+Create app                  : express <myapp>
+Install dependent packages  : cd <myapp> 
+                             npm install
+
+
+MongoDB
+
+Installation link           : https://www.mongodb.com/download-center/community
+Check mongo db version      : mongod --version
+Set Path start db server    : mongod --dbpath c:\Mongodb\data\db --port 27018
+With Journal                : mongod --dbpath <path> --port 27018 --journal
+Start db client             : mongo -host localhost:27018
+see all dbs                 : show dbs
+create / use                : use <dbname>;
+import data from json       : mongoimport --db <dbName> --collection <collectionName> --file <path with fileName>.json --port=27018 (optional)--jsonArray 
+                            eg: mongoimport --db employee --collection training --file employees.json --port=27018
+current db                  : db
+(curr db)insert new doc(row): db.<collection>.insert();
+ (collection and db gets created automatically when inserted json data)
+                            eg: db.tasks.insert({
+                                title: "Learn MongoDB",
+                                description: "This is for learning MonogoDB",
+                                completed: false,
+                                date: new Date()
+                                });
+                                db.tasks.insert({
+                                    title: "Learn NodeJS",
+                                    description: "This is for learning NodeJS",
+                                    completed: false,
+                                    date: new Date()
+                                    });
+                                db.users.insert({
+                                    name:"John Doe",
+                                    email: "john.d@gmail.com",
+                                    username: "john.d",
+                                    passwordHash: "2a$10$QqzUkPf/T6SvyobIHR/4wubrk0UNGuBNMMtwR4SCaALIY67iCr4oC"
+                                    });'$2a$10$rBDGUCQ3LW2dcK4osWn3huFeVnqtHj3j61HElv1cEGLTh7W4RZ7Cy'
+                                db.users.insert({
+                                    name:"Jeffrey",
+                                    email: "jeffrey@gmail.com",
+                                    username: "jef",
+                                    passwordHash: '$2a$10$rBDGUCQ3LW2dcK4osWn3huFeVnqtHj3j61HElv1cEGLTh7W4RZ7Cy'
+                                    })
+                                db.test.insert({
+                                    name:"John Doe",
+                                    email: "john.d@gmail.com",
+                                    username: "john.d",
+                                    passwordHash: "2a$10$QqzUkPf/T6SvyobIHR/4wubrk0UNGuBNMMtwR4SCaALIY67iCr4oC"
+                                    });
+                                db.courses.insert({
+                                    name:"Jeffrey Rajkumar",
+                                    address:"Bangalore",
+                                    courses: ["big data","python","android"],
+                                    offices: ["nyk","dubai","blr"]
+                                    });
+                                $2a$10$.092N8w879mr96bUjqvFj.KG3vK.XhLW7npvg8fu0Ixd/Syx1ydC.
+                                $2a$10$.iw2TcrwifH7O8a72izSO.3f7SWvutU9hOj9w5DlNRNANjIz1Ft9m
+bulk ordered insert         : var <bulk_name> = db.items.initializeOrderedBulkOp();
+bulk unordered insert       : var <bulk_name> = db.items.initializeUnorderedBulkOp();
+                              var bulk = db.items.initializeOrderedBulkOp(); / db.items.initializeUnorderedBulkOp();
+                              bulk.insert({_id: 1, item: "pen", available: true, soldQty:700});
+                              bulk.insert({_id: 2, item: "pencil", available:false , soldQty:900});
+                              bulk.insert({_id: 3, item: "books", available: true, soldQty : 600});
+                              bulk.execute();
+update entire document(row) : db.<collection>.update(
+                               { _id: <id> },
+                               { <new json>},
+                               {upsert: <true/false>},
+                               {multi:<true/false>}
+                            )
+                            eg: db.users.update(
+                                    { _id: ObjectId("5d35e9b4b1300f49370e9bad") },
+                                    { name:"John Doe",
+                                    email: "john.d@gmail.com",
+                                    username: "john.d",
+                                    passwordHash: "$2a$10$/bhGTmMlUlWXXAsa/8JLnelfztc9/RkfCN.ez0JJ5uUAk.cwTxwDq"
+                                });
+update multiple docs (rows) : db.<collection>.update(
+                               { _id: <id> },
+                               {$set: {<key>:<value>} }
+                               {multi: true}
+                            );
+update by appending doc(row): db.<collection>.update(
+ (or update)                   { _id: <id> },
+                               {$set: {<key>:<value>} }
+                            );
+update by push doc(row)     : db.<collection>.update(
+                               { _id: <id> },
+                               {$push: {<key>:<value>} }
+                            );
+update by push once doc(row): db.<collection>.update(
+                               { _id: <id> },
+                               {$addToSet: {<key>:<value>} }
+                            );                                                        
+update doc by increment(row): db.<collection>.update(
+                               { _id: <id> },
+                               {$inc: {<numeric_column>:<inc_by_number>} }
+                            );
+update by remove field(s)   : db.<collection>.update(
+                               { <key>: <condition> },
+                               {$unset: {<column_to_remove>:<value>} }
+                            );
+update by upsert            : db.<collection>.update(
+                               { <key>: <condition> },
+                               {<keys>:<values>},
+                               {upsert:true}
+                            );                            
+remove                      : db.<collection>.remove({<key>:<value>});
+                              db.users.remove({username:"john.d"})
+remove by number            : db.<collection>.remove({<key>:<value>},<number>);
+remove drop a collection    : db.<collection>.drop();
+create passwordHash         : var bcrypt = require("bcryptjs");
+(cmd->node)                   var salt =  bcrypt.genSaltSync(10);
+                              var passwordHash =  bcrypt.hashSync("abcd1234",salt);
+                              passwordHash
+show all collection         : show collections;
+show one unique(row)       : db.<collection>.distinct("<key>");
+show all documents(row)     : db.<collection>.find();
+^^ with pretty              : db.<collection>.find().pretty();
+show top 1                  : db.<collection>.findOne();
+limit without an order      : db.<collection>.find().limit(<number>);
+limit with an order         : db.<collection>.find().sort({<key>:<1>/<-1>}).limit(<number>);
+                            eg: db.items.find().sort({available:1}).limit(3);
+order/sort                  : db.<collection>.find().sort({<key>:<asc:1>/<desc:-1>});
+sort by inseted order       : db.<collection>.find().sort({$natural:<asc:1>/<desc:-1>});
+count                       : db.<collection>.find().count();
+skip                        : db.<collection>.find().skip(<number>);
+where                       : db.<collection>.find({<key>:<value>},{<key>:<value>});
+or                          : db.<collection>.find({ $or: [{<key>:<value>},{<key>:<value>}] });
+in                          : db.<collection>.find({<key>:{$in:[<value_1>,<value_n>]}});
+less than                   : db.<collection>.find({<key>:{$lt:<value>}});
+less than equal to          : db.<collection>.find({<key>:{$lte:<value>}});
+greater than                : db.<collection>.find({<key>:{$gt:<value>}});
+greater than equal to       : db.<collection>.find({<key>:{$gte:<value>}});
+multiple condition/exact    : db.<collection>.find({<key>:{$elemMatch:{<condition_1>:<value>,<condition_n>:<value>}}});
+not                         : db.<collection>.find({<key>:{$not:<value>}});
+mod                         : db.<collection>.find({<key>:{$mod:[<divide by number>,<remender value>]}});
+pattern search
+(case insensitive)          : db.<collection>.find({<key>:/<value>/});
+(case sensitive)            : db.<collection>.find({<key>:/<value>/i});
+(search using characters 
+as wild cards)              : db.<collection>.find({<key>:/<character_1><character_n>?/i});
+search array index          : db.<collection>.find({'<key>.<index_number>':<value>});
+limit/slice array           : db.<collection>.find({<key>:{$slice:<number/size>}});
+Store javascript code       : db.<collection>.find({$where":funstion(){<Js Code>}});
+                            eg: db.foo.insert ({"apple" : 8, "spinach" : 4, "watermelon" : 4});
+                                db.foo.find({"$where" : function () {
+                                ... for ( var current in this) {
+                                ... for ( var other in this) {
+                                ... if (current != other && this[current] == this[other]) {
+                                ... return true;
+                                ... }}}
+                                ... return false;
+                                ... }});
+
+                                this: current document [apple, spinach, watermelon] 
+
+                                db.foo.find({"$where" : function () { for ( var current in this) { for ( var other in
+                                this) { if (current != other && this[current] == this[other]) { return true; }}} return
+                                false; }});
+
+                                db.foo.find({"$where" : "this.x + this.y == 10"}); 
+Using cursor                : var  <cursor_name> = db.<collection>.find();
+                            eg: var cursor = db.items.find();
+                                cursor.forEach(x=>print(x.<filename>));
+                                cursor.forEach(function(x){print(x.name);});
+Explain execution plan      : db.<collection>.find().explain();
+                              <cursor_name>.explain();
+Index
+ show indexes               : db.<collection>.getIndexes();
+ single field index         : db.<collection>.createIndex({<Key_to__be_Indexed>:<asc:1>/<desc:-1>},optional{name: "<name_of_newIndex>"});
+ compound field index       : db.<collection>.createIndex({<Key_to__be_Indexed>:<asc:1>/<desc:-1>,<Key_to__be_Indexed>:<asc:1>/<desc:-1>},optional{name: "<name_of_newIndex>"});
+ hashed field index         : db.<collection>.createIndex({<Key_to__be_Indexed>:<hashed>},optional{name: "<name_of_newIndex>"});
+ unique field index         : db.<collection>.createIndex({<Key_to__be_Indexed>:<asc:1>/<desc:-1>},{unique: <true/false>});
+ (Enforce unique values on keys)
+ Total time to live(TTL) index kills an document which qualifies to TTL index after
+ specified time             : db.<collection>.createIndex({<Key_to__be_Indexed>:<asc:1>/<desc:-1>},{expireAferSeconds: <number_of_seconds>});
+ sparse index               : db.<collection>.createIndex({<Key_to__be_Indexed>:<asc:1>/<desc:-1>},{spare: <true/false>});
+ (When a spare indexed key is used to only return all indexed documents. All unindexed documents will be ignored)
+ text index(for long text)  : db.<collection>.createIndex({<Key_to__be_Indexed>:text});
+ text index with wild cards : db.<collection>.createIndex({"$**":text});
+ (for all string keys)
+ text index with language   : db.<collection>.createIndex({<Key_to__be_Indexed>:text},{default_language:"<language_name>"});
+ drop index                 : db.<collection>.dropIndex({<Key_to__be_Indexed>:<asc:1>/<desc:-1>);
+ drop all indexes           : db.<collection>.dropIndexes();
+ Modify index               : drop index then create index
+ create index in background : db.<collection>.createIndex({<Key_to__be_Indexed>:text},{background:<true/false>});
+ Rebuild index              : db.<collection>.reIndex();
+ (if performance does not improve)
+ Check curr index rebuild   : db.currentOp();
+ Kill a index rebuild       : db.killOp(<opid>);
+ Hint                       : db.<collection>.find({<key>:<value>},{<key>:<value>}).hint({<Indexes_list>:<1/-1>});
+ (Force to use mentioned indexes)
+ Geospatial Inclusion Index : db.<collection>.createIndex({<Location_Key_to__be_Indexed>:"2dsphere"});
+                            eg: db.places.insert({location:{type:"Point", coordinates:[-78.97,40.77]}, name: "Cubbon Park", category: "Parks"});
+                                db.places.createIndex({location :"2dsphere"});
+  Circle                    : db.<collection>.find({<Location_Key>:{$geoWithin: {$center: [[<long_num>,<lat_num>],<search_radius_in_meters>]}}});
+                            eg: db.places.find({location:{$geoWithin: {$center: [[-74.40,40.00],1]}}});
+  Box                       : db.<collection>.find({<Location_Key>:{$geoWithin: {$box: [[<long_num>,<lat_num>],[<long_num>,<lat_num>]]}}});
+                            eg: db.places.find({location:{$geoWithin: {$box: [[-100,40.00],[10,100]]}}});                            
+  Polygon                   : db.<collection>.find({<Location_Key>:{$geoWithin: {$geometry: {type: "Polygon", coordinates: [[[Start<long_num>,<lat_num>],[<long_num>,<lat_num>],[End and start should be same<long_num>,<lat_num>]]]} }}});
+                            eg: db.places.find({location:{$geoWithin: {$geometry: {type: "Polygon", coordinates: [[[0,0],[-90,-45],[-100,-50],[0,0]]] }}}});
+ Geospatial Proximity Index : db.<collection>.find({<Location_Key>:{$geoNear: {$geometry: {type: "Point", coordinates: [<long_num>,<lat_num>]}, $maxDistance: <distance_in_mtrs> }}});
+                            eg: db.places.find({location:{$geoNear: {$geometry: {type: "Point", coordinates: [-90,-45]}, $maxDistance: 10000000000}}});
+Aggregate Query (Runs in single machine)
+ Group and sum              : db.<collection>.aggregate([{$group:{_id:"$<key>",<new_summation_key_name>: {$sum:"$<key>"}}}]);
+ Match and filter           : db.<collection>.aggregate([{$match:{<key>: {$<condition(gt/lte)>: <comparison_value>}}}]);
+                            eg: db.zipcode.aggregate([{$group:{_id:"$state", totalPop: {$sum:"$pop"}}}, {$match:{totalPop: {$gte: 10*1000*1000}}}]);
+ Projection, month & sort   : db.<collection>.aggregate([{$project:{<new_projection_key_name>:{$month: "$<key>"}, <new_projection_key_name>: "$<key>", _id: 0}}, {$sort: {<new_projection_key_name_from_projection>: <1/-1>}}]);
+Map Reduce                  : db.<collection>.group({key: {<key>:<grouping_value>}, cond: {<key>:{$<condition(gt/lte)>:<value>}}, reduce: function(cur, result){ statments }, initial: { initial statments }});
+                            eg: db.records.group({key: {a:1}, cond: {a:{$lt:3}}, reduce: function(cur, result){ result.count += cur.count }, initial: { count: 0 }});
+Replication
+ Create replica server      : mongod --port <number> --dbpath < path to store db > --replSet <name> --oplogSize <size>
+                            eg: mongod --port 27018 --dbpath c:\Mongodb\data\mongoDBDatabase1 --replSet rs0 --oplogSize 128
+                                mongod --port 27019 --dbpath c:\Mongodb\data\mongoDBDatabase2 --replSet rs0 --oplogSize 128
+                                mongod --port 27020 --dbpath c:\Mongodb\data\mongoDBDatabase3 --replSet rs0 --oplogSize 128
+ Start a server             : mongo --port <number>
+                            eg: mongo --port 27019
+ Configure servers          : rsconf={_id:"<replSet_name>",members:[{_id:<value>,host:"localhost:<port_number>"}]}
+                            eg: rsconf={_id:"rs0",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+                                rsconf={
+                                            "_id" : "rs0",
+                                            "members" : [
+                                                {
+                                                    "_id" : 0,
+                                                    "host" : "localhost:27018"
+                                                },
+                                                {
+                                                    "_id" : 1,
+                                                    "host" : "localhost:27019"
+                                                },
+                                                {
+                                                    "_id" : 2,
+                                                    "host" : "localhost:27020"
+                                                }
+                                            ]
+                                        }
+ Initiate server            : rs.initiate(rsconf);
+ Get configuration          : rs.conf();
+ Write concern              : db.<collection>.insert({<key>:<value>....},{writeConcern: {w:<num_of_servers_to_write>, wtimeout: <seconds_to_timeout>}});
+  (Force write on secondary servers as a frontend synchronous process)
+                            eg: : db.products.insert({items:"envelopes"},{writeConcern: {w:2, wtimeout: 5000}});
+ Default write concern      : cfg = rs.conf()
+                              cfg.setting = {}
+                              cfg.settings.getLastErrorDefaults= { w: <majority/minority/number> ", wtimeout : <seconds_to_timeout>}
+                              rs.reconfig(cfg)
+ Configure tag sets         : conf.members[<index number>].tags = { "dc": "<dataCenter_code/location>", rackNYK ": "<rack_code/location>"}
+                            eg: conf = rs.conf()
+                                conf.members[0].tags = { "dc": "NYK", rackNYK ": "A"}
+                                conf.members[1].tags = { "dc": "NYK", rackNYK ": "A"}
+                                conf.members[2].tags = { "dc": "NYK", rackNYK ": "B"}
+                                conf.members[3].tags = {"dc": "LON", rackLON ": "A"}
+                                conf.members[4].tags = { "dc": "LON", rackLON ": "B"}
+                                conf.settings = { getLastErrorModes : { MultipleDC : { "dc": 2}, multiRack : { rackNYK : 2 }}}
+                                rs.reconfig(conf)
+ Replica status             : rs.status();
+ Oplog current server status: db.printReplicationInfo();
+ Oplog Master Slave diff    : db.printSlaveReplicationInfo();
+ Check slave health         : rs.slaveOk();
+ (Returns nothing if health is ok)
+ Check is Master            : db.isMaster();
+Sharding
+ Add config server(min 3)   : mongod -configsvr -dbpath <path> -port <port_number>
+ Map mongos & config servers: mongos -config localhost:<config_server1_port>, localhost:<config_server2_port>, localhost:<config_server3_port>
+ Start mongo shell          : mongo -host <hostname_of_machine_running_mongos(localhost)> -port <port_number>
+ All commands               : sh.help()
+ Add Shard                  : sh.addShard("<hostname/localhost>");
+ Enable Sharding on DB      : sh.enableSharding("<dbname>"); / db.runCommand({enableSharding: <dbname});
+ Enable Sharding on coll    : sh.shardCollection("(ShardKey)<dbname>.<collection>",{<keys>: <hashed/1/-1>});
+ Add Shard tags             : sh.addShardTag("<shard_Name>","<Tag_Name>");
+ Add Shard tags range       : sh.addTagRange("<dbname>.<collection>",{<key>: "<value_range_start>"},{<key>: "<value_range_end>"},"<Tag_Name>");
+ Find shards                : use config
+                              db.shards.find((optional){tags: "<Tag_Name>"});
+ Find tags                  : use config
+                              db.tags.find((optional){tags: "<Tag_Name>"});
+ Remove tags                : use config
+                              db.tags.remove({_id: {ns: "(ShardKey)<dbname>.<collection>", min: {<key>: "<value>"}},  tag: "<Tag_Name>"});
+Collection Capping
+ Create capped collections  : db.createCollection("<collectionName>",{size: <number_in_bytes>,(optional)max: <size_of_documents>});
+ Check collection is capped : db.<collection>.isCapped();
+ Convert to capped coll     : db.runCommand({"convertToCapped":"<collection_name>", size: <number_in_bytes>});
+GridFS / Large files
+ Find chunks(binary chunks) : db.<collection>.chunks.find();
+ Find files(metadata)       : db.<collection>.files.find();
+ Drop chunks                : db.<collection>.chunks.drop();
+ Drop files                 : db.<collection>.files.drop();
+DB Administrator
+ DB server status            : db.serverStatus();
+ DB stat                     : db.stats();
+ Collection status           : db.<collection>.stats();
+ Current operations          : db.currentOp();
+ Mongo status(server)        : mongostat
+ Mongo top(collection)       : mongotop
+ DB Backup MongoDump         : mongodump --host="<hostname / localhost>" --port=<port_number>
+ DB Restore                  : mongorestore /<dump directory path>
+ DB lock                     : db.runCommand({"fsync":1,"lock":1});
+ Check loack status          : db.currentOp();
+ DB unlock                   : db.fsyncUnlock();
+
+
+
+
+
+Heroku
+
+## Running Locally
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+```sh
+$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
+$ cd node-js-getting-started
+$ npm install
+$ npm start
+```
+
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+## Deploying to Heroku
+```
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
+Login                       : heroku login
+Create app                  : heroku create <app-name> (For node procfile, app.json, index.js => with PORT = process.env.PORT || 3000 and without localhost)
+Update app                  : git push heroku master (After main git repo is updated)
+Open app in browser         : heroku open
+MongoDB addon               : Add addon mLab
+                              Add process.env.MONGODB_URI in mongoose.connect
+Rename app                  : setting -> change app name based on availability
+                             git remote rm heroku
+                             heroku git:remote -a <new autogenerated repo name>
+
+Postman
+
+Body -> x.www-form-urlencoded
+Enter keys and values
+
+
+Docker
+ Default compose filename   : docker-compose.yml
+ Build                      : docker-compose build
+ Start                      : docker-compose up (optional)[daemon process] -d
+ Exit                       : docker-compose stop
