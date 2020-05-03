@@ -3,7 +3,7 @@ VS Code
  Open Terminal              : ctrl + `
  Switch b/w tabs            : alt + tab
  Explorer Resize            : ctrl + b
- Html basic format          : in vscode type "doc" + tab
+ Html basic format          : "doc" + tab
 
 Git
 
@@ -79,6 +79,22 @@ Java
  Eclipse                    : https://www.eclipse.org/downloads/packages/
 
 
+Javascript
+ Template literals          : `${<variables_with_js_calulations>}`
+ Arrow function             : (parameters..) => { statments }
+ For Each                   : <array_name>.forEach((value,index) => { statments})
+ Map                        : <new_array_name> = <array_name>.map((value,index) => { statments})
+ Filter                     : <new_array_name> = <array_name>.map((value) => { <select values to filter> })
+ Spread                     : ...<object_name>
+  (Use one object's values to initialize another object with added values)
+ Destructuring              : <datatype> { <name_of_new_variable_to_import> } = <name_of_object_variable_is_imported_from>
+ Sub Classes                : class <sub_class_name> extends <parent_class_name> {
+                                constructor(parameters){
+                                    super(variables)
+                                    this.<variable_name> = <value/parameter>
+                                    ...
+                                }
+                            }
 
 Typescript
  Install                    : npm install -g typescript
@@ -127,17 +143,17 @@ Jquery                      : npm install --save jquery
 
 React
 
-Git init                    : git init
-NPM Install                 : npm init
+ Git init                   : git init
+ NPM Install                : npm init
 
-React global install        : npm install -g create-react-app
-React global uninstall      : npm uninstall -g create-react-app
-Create app                  : npm init react-app <my-app>
-                             npx create-react-app <my-app>
+ React global install       : npm install -g create-react-app
+ React global uninstall     : npm uninstall -g create-react-app
+ Create app                 : npm init react-app <my-app>
+                              npx create-react-app <my-app>
 
-React & Dom Install         : npm install react react-dom
-Webpack install             : npm install webpack webpack-dev-server webpack-cli --save
-Babel install               : npm install babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin --save-dev
+ React & Dom Install        : npm install react react-dom
+ Webpack install            : npm install webpack webpack-dev-server webpack-cli --save
+ Babel install              : npm install babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin --save-dev
 
 Start                       : Start
 
