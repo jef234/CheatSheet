@@ -1,4 +1,6 @@
 VS Code
+ Open VSCode from cmd       : code .
+  (Setup: In VSCode ctrl+shift+p, type shell, select shell command path)
  Open File                  : ctrl + p
  Open Terminal              : ctrl + `
  Switch b/w tabs            : alt + tab
@@ -17,7 +19,8 @@ Push(To remote)              : git push -u origin <master/branch>
 -u sets default push
 git push -u origin RCANALYTIC-34420
 git push -u origin RCANALYTIC-39895
-Pull(From remote)           : git pull origin <master/branch>
+Fetch(Metadata from remote) : git fetch origin <master/branch>
+Pull(Code from remote)      : git pull origin <master/branch>
 Min Config
 Config name                 : git config --global user.name "<name>"
 Config email                : git config --global user.email "<email>"
@@ -84,7 +87,7 @@ Javascript
  Arrow function             : (parameters..) => { statments }
  For Each                   : <array_name>.forEach((value,index) => { statments})
  Map                        : <new_array_name> = <array_name>.map((value,index) => { statments})
- Filter                     : <new_array_name> = <array_name>.map((value) => { <select values to filter> })
+ Filter                     : <new_array_name> = <array_name>.filter((value) => { <select values not to filter> })
  Spread                     : ...<object_name>
   (Use one object's values to initialize another object with added values)
  Destructuring              : <datatype> { <name_of_new_variable_to_import> } = <name_of_object_variable_is_imported_from>
@@ -143,19 +146,23 @@ Jquery                      : npm install --save jquery
 
 React
 
- Git init                   : git init
- NPM Install                : npm init
-
  React global install       : npm install -g create-react-app
  React global uninstall     : npm uninstall -g create-react-app
- Create app                 : npm init react-app <my-app>
-                              npx create-react-app <my-app>
+ Create app                 : npx create-react-app <my-app>
 
  React & Dom Install        : npm install react react-dom
  Webpack install            : npm install webpack webpack-dev-server webpack-cli --save
  Babel install              : npm install babel-core babel-loader babel-preset-env babel-preset-react html-webpack-plugin --save-dev
 
-Start                       : Start
+ Start                      : npm start
+ Build(For production)      : npm run build
+
+ ternary operator           : { <condition/value> ? <true statments> : <false statments> }
+
+ With Extention ES7 React/Redux/GraphQL/React-Native snippets
+  Generate class component  : rcc
+  Generate fun.. component  : rfc / rfce
+  Import prompTypes         : impt
 
 
 Node
@@ -515,6 +522,8 @@ Enter keys and values
 
 
 Docker
+ Check docker version       : docker info
+ Check docker compose ver   : docker-compose version
  Default compose filename   : docker-compose.yml
  Build                      : docker-compose build
  Start                      : docker-compose up (optional)[daemon process] -d
