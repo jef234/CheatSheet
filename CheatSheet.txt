@@ -177,6 +177,8 @@ React
 
  NPM packages
   react router              : npm i react-router-dom
+  axios(Fetch API)          : npm i axios
+  setting up redux          : npm i redux react-redux redux-thunk 
 
 
 
@@ -551,7 +553,7 @@ Docker
 Github Pages
 
  React
-  Install gh-pages          :npm install gh-pages --save-dev
+  Install gh-pages          : npm install gh-pages --save-dev
   Package.json add
    after "private" add      : "homepage": "http://<username>.github.io/<repo-name>",
    under "scripts" add      : "predeploy": "npm run build",
