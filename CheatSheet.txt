@@ -178,7 +178,8 @@ React
  NPM packages
   react router              : npm i react-router-dom
   axios(Fetch API)          : npm i axios
-  setting up redux          : npm i redux react-redux redux-thunk 
+  setting up redux          : npm i redux react-redux redux-thunk
+  firestore                 : npm i firebase react-redux-firebase redux-firestore
 
 
 
