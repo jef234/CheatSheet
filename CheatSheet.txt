@@ -63,6 +63,7 @@ General NPM Install
  Popper                     : npm install popper.js --save
  UUID                       : npm install uuid
  Class names                : npm i classnames
+ Firebase hosting           : npm i -g firebase-tools
 
 
 
@@ -180,6 +181,7 @@ React
   axios(Fetch API)          : npm i axios
   setting up redux          : npm i redux react-redux redux-thunk
   firestore                 : npm i firebase react-redux-firebase redux-firestore
+  authentication            : npm i redux-auth-wrapper
 
 
 
@@ -568,5 +570,8 @@ Github Pages
 
 
 
-
- 
+Firebase Hosting
+ npm i -g firebase-tools 
+ firebase login
+ firebase init
+ (After building app/Prebuild)firebase deploy
