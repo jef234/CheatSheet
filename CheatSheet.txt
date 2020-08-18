@@ -68,7 +68,10 @@ General NPM Install
 
 
 Dotnet
-                              cd DatingApp.API 
+                              cd DatingApp.API
+ create console app         : dotnet new console
+ restore dependencies       : dotnet restore
+ complie and run            : dotnet run
  Start                      : dotnet watch run
  Stop                       : ctrl + C
  Constructor                : ctor
@@ -94,8 +97,19 @@ Javascript
  Template literals          : `${<variables_with_js_calulations>}`
  Arrow function             : (parameters..) => { statments }
  For Each                   : <array_name>.forEach((value,index) => { statments})
+  (Loops for every element in the array. Does not return any data)
  Map                        : <new_array_name> = <array_name>.map((value,index) => { statments})
- Filter                     : <new_array_name> = <array_name>.filter((value) => { <select values not to filter> })
+  (Returns a new array using exising array data)
+ Filter                     : <new_array_name> = <array_name>.filter((value) => { <condition the values not to filter> })
+  (Filters an array and returns filtered data)
+ Sort                       
+  Ascending order           : <new_array_name> = <array_name>.sort((a, b) =>  (a > b ? 1 : -1))
+                              <new_array_name> = <array_name>.sort((a, b) =>  a - b)
+  Descending order          : <new_array_name> = <array_name>.sort((a, b) =>  (a < b ? 1 : -1))
+                              <new_array_name> = <array_name>.sort((a, b) =>  b - a)
+ Reduce                     : <accumulator> = <array_name>.reduce((accumulator, value) => <logic to calculate accumulator>, <initial value of accumulator>)
+                              <accumulator> = <array_name>.reduce((accumulator, value) => accumulator + value, <initial value of accumulator>)
+  (Used to calculate total from a array elements)
  Spread                     : ...<object_name>
   (Use one object's values to initialize another object with added values)
  Destructuring              : <datatype> { <name_of_new_variable_to_import> } = <name_of_object_variable_is_imported_from>
