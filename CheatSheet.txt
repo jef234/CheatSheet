@@ -65,7 +65,86 @@ General NPM Install
  Class names                : npm i classnames
  Firebase hosting           : npm i -g firebase-tools
 
-
+SQL
+ create database            : create database <DatabaseName>;
+ select database            : use <DatabaseName>;
+ delete database            : drop database <DatabaseName>;
+ create table               : create table <TableName>(
+                               <coloumnname1> <datatype> <constraints (not null, default ='<value>', unique, primary key)>,
+                               <coloumnname2> <datatype> <constraints>,
+                               ....
+                               <coloumnnamen> <datatype> <constraints>,
+                               primary key(<coloumnname>)
+                               );
+ temporary table            : create table #<TableName>(
+                               <coloumnname1> <datatype> <constraints (not null, default ='<value>', unique, primary key)>,
+                               <coloumnname2> <datatype> <constraints>,
+                               ....
+                               <coloumnnamen> <datatype> <constraints>,
+                               primary key(<coloumnname>)
+                               );
+ insert record              : insert into <TableName> values(value1, value2, ....., valueN);
+ get unique values          : select distinct <ColoumnNames> from <TableName>;
+ pattern search             : select * from <TableName> where <coloumnname> like '<values>( _ single character, % multiple characters)';
+ between a range            : select * from <TableName> where <coloumnname> between <lower range value> and <upper range value>;
+ delete record(s)           : delete from <TableName> where [Condition];
+ truncate table             : truncate table <TableName>;
+ update record(s)           : update <TableName> set <coloumnname1> = <value1>, <coloumnname2> = <value2> where [condition];
+ merge tables               : merge <target TableName> as T
+                              using <source TableName> as S
+                               on <join condition>
+                              when matched
+                               then update set <coloumnname1> = <value1>, <coloumnname2> = <value2>
+                              when not matched by target
+                               then insert (coloumnname1, coloumnname2,...,coloumnnamen) values(value1, value2, ....., valueN)
+                              when not matched by source
+                               then delete;
+ modify table               : alter table <TableName>
+                              add <coloumnname> datatype,
+                              drop <coloumnname>;
+ case statement             : select <coloumnname> =
+                              case
+                              when <condition_1> then <value1>
+                              when <condition_2> then <value2>
+                              ....
+                              else <value_n>
+                              end 
+                              from <TableName>
+ ternary statment           : select iif(<condition, <value1>, <value2>) as <coloumnname>
+                              from <TableName>
+ schema
+  create                    : create schema <schema_name>;
+  create and create schema  : create schema if not exists <schema_name>;
+ user defined functions
+  scalar valued functions   : create function <function_name>(@<parameter_name> datatype,...)
+                              returns return_datatype
+                              as
+                              begin
+                                ...function body
+                              return value
+                              end
+  table valued functions    : create function <function_name>(@<parameter_name> datatype,...)
+                              returns table
+                              as
+                              return (<sql query>)
+                              end
+                              to execute: select * from <schema_name>.<function_name>(<parameter_name1>,...);
+ stored procedure           : create procedure <procedure_name> @<parameter_name1> <datatype>, ...
+                              as
+                              <sql query where <coloumnname> = @<parameter_name1>>
+                              go
+                              to execute : exec <procedure_name> @<parameter_name1>=<value>
+ transactions               : begin try
+                                begin transaction
+                                <sql queries>...
+                                commit transaction
+                                print 'transaction committed'
+                              end try
+                              begin catch
+                                rollback transaction
+                                print 'transaction rollback' / error_message()
+                              end catch
+ 
 
 Dotnet
                               cd DatingApp.API
