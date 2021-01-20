@@ -115,7 +115,7 @@ SQL
  schema
   create                    : create schema <schema_name>;
   create and create schema  : create schema if not exists <schema_name>;
- user defined functions
+ user defined functions (always returns a value)
   scalar valued functions   : create function <function_name>(@<parameter_name> datatype,...)
                               returns return_datatype
                               as
@@ -129,11 +129,14 @@ SQL
                               return (<sql query>)
                               end
                               to execute: select * from <schema_name>.<function_name>(<parameter_name1>,...);
- stored procedure           : create procedure <procedure_name> @<parameter_name1> <datatype>, ...
+ stored procedure
+ (Prepared sql query)       : create procedure <procedure_name> @<parameter_name1> <datatype>, ...
                               as
                               <sql query where <coloumnname> = @<parameter_name1>>
                               go
                               to execute : exec <procedure_name> @<parameter_name1>=<value>
+ rename stored procedure    : rename sp_rename <old name>, <new name>
+ delete stored procedure    : drop function <name>
  transactions               : begin try
                                 begin transaction
                                 <sql queries>...
@@ -144,7 +147,14 @@ SQL
                                 rollback transaction
                                 print 'transaction rollback' / error_message()
                               end catch
- 
+ rank
+  rank                      : select rank() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  dense_rank
+  (does not skip rank)      : select dense_rank() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  ntile
+  (rank based on rank range): select ntile(<range>) over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  row_number
+  (generates unique ranks)  : select row_number() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
 
 Dotnet
                               cd DatingApp.API
