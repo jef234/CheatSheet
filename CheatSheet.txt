@@ -155,6 +155,19 @@ SQL
   (rank based on rank range): select ntile(<range>) over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
   row_number
   (generates unique ranks)  : select row_number() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+ trigger (event)            : create/alter trigger <trigger_name>
+                              on <TableName>
+                              for/after insert/update/delete
+                              as
+                              begin
+                               
+                              insert into <TableName> (coloumnname1,.., coloumnnamen)
+                              select a.*, value1, valueN from inserted/deleted/updated a
+
+                              end
+                              go
+
+
 
 Dotnet
                               cd DatingApp.API
