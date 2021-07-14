@@ -168,6 +168,46 @@ SQL
                               go
 
 
+Unix / Linux
+ general syntax             : <command> -option1 -optionN or -option1optionN arguments
+ ignore white space in btw  : \
+ list all files and dir     : ls <directory>
+  detailed listing          : ls -l
+  sub folder recurssive ls  : ls -R
+ bash auto suggestion       : partically type then tab tab
+ clear terminal             : clear
+ help / manual pages        : man <command name>
+ find unknown commands      : apropos <phase/functionality>
+ print working directory    : pwd
+ change directory / Navigate
+  go back to home           : cd
+  naviagte into dir         : cd "<directory name>" 
+                        or  : cd <directoryname>
+  naviagte into sub dir     : cd "<directory name>/<sub directory name>"
+  navigate 1 level up       : cd ..
+  navigate n levesl up      : cd ../../<directoryname>
+  navigate to previous dir  : cd -
+ create directory           : mkdir <directoryname>
+  create required sub dir   : mkdir -p <directoryname/subdirectoryname>
+ remove directory           : rmdir <directoryname>
+ recursive remove directory : rm -r <directoryname>
+ copy file or directory     : cp <source file/directory> <path/><new file/directory name>
+ move/rename file or dir    : mv <source file/directory> <path/><new file/directory name>
+ wild cards
+  all                       : *
+  single character          : ?
+  current directory         : .
+ find / search              : find <location/path> -<search attributename eg: name> "search tearm"
+ access local drve          : cd /mnt/<letter of drive>
+ supervisor access
+  single use                : sudo <commands>
+  sudo mode                 : sudo -s
+  exist sudo mode           : exit
+ access rights of file/dir  : cmod <permission numbers or letters> <file/dir>
+ edit file                  : nano <filename>
+ change ownership           : sudo chown <file/dir>
+
+
 
 Dotnet
                               cd DatingApp.API
