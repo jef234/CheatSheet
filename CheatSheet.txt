@@ -192,6 +192,7 @@ Unix / Linux
   create required sub dir   : mkdir -p <directoryname/subdirectoryname>
  remove directory           : rmdir <directoryname>
  recursive remove directory : rm -r <directoryname>
+ remove file                : rm filename1 filename2 .... filenameN
  copy file or directory     : cp <source file/directory> <path/><new file/directory name>
  move/rename file or dir    : mv <source file/directory> <path/><new file/directory name>
  wild cards
@@ -207,6 +208,8 @@ Unix / Linux
  access rights of file/dir  : cmod <permission numbers or letters> <file/dir>
  edit file                  : nano <filename>
  change ownership           : sudo chown <file/dir>
+ conditional sleep          : while [condition1 ] || [ conditionN ]; do sleep <seconds>; done ; <next commands>
+  while [ ! -f CheatSheet2.txt ] || [ ! -f CheatSheet1.txt ]; do sleep 60; done ; mv CheatSheet2.txt CheatSheet3.txt  
 
 
 
