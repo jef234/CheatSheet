@@ -170,6 +170,7 @@ SQL
 
 Unix / Linux
  general syntax             : <command> -option1 -optionN or -option1optionN arguments
+ navgate to c drive         : cd mnt/c
  ignore white space in btw  : \
  list all files and dir     : ls <directory>
   detailed listing          : ls -l
