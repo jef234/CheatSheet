@@ -209,7 +209,7 @@ Unix / Linux
  edit file                  : nano <filename>
  change ownership           : sudo chown <file/dir>
  conditional sleep          : while [condition1 ] || [ conditionN ]; do sleep <seconds>; done ; <next commands>
-  while [ ! -f CheatSheet2.txt ] || [ ! -f CheatSheet1.txt ]; do sleep 60; done ; mv CheatSheet2.txt CheatSheet3.txt  
+                               eg: while [ ! -f CheatSheet2.txt ] || [ ! -f CheatSheet1.txt ]; do sleep 60; done ; mv CheatSheet2.txt CheatSheet3.txt  
 
 
 
