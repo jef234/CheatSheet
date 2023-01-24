@@ -65,6 +65,7 @@ General NPM Install
  Class names                : npm i classnames
  Firebase hosting           : npm i -g firebase-tools
 
+
 SQL
  create database            : create database <DatabaseName>;
  select database            : use <DatabaseName>;
@@ -663,6 +664,10 @@ DB Administrator
  Check loack status          : db.currentOp();
  DB unlock                   : db.fsyncUnlock();
 
+
+Spark
+
+ Check version              : spark.version
 
 
 Heroku
