@@ -235,7 +235,7 @@ Java
  
  Install JDK                : https://www.oracle.com/java/technologies/javase-downloads.html
  Set Environment variable   : Computer-> properties-> advanced-> Environment Variables-> System variables-> path-> new-> <bin dir of new jdk installed> -> ok -> ok
- Check version              : java - version
+ Check version              : java -version
  Eclipse                    : https://www.eclipse.org/downloads/packages/
 
 
@@ -665,9 +665,15 @@ DB Administrator
  DB unlock                   : db.fsyncUnlock();
 
 
+Hadoop
+
+ hadoop version             : Check version
+
+
+
 Spark
 
- Check version              : spark.version
+ spark.version              : Check version
 
 
 Heroku
