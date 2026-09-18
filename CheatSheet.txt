@@ -53,7 +53,7 @@ Clone branch                : git clone <clonne url> -b <branchname>
 git clone https://github.cerner.com/rcanalytics/analytics_VR_automation.git -b RCANALYTIC-34420
 git clone https://github.cerner.com/rcanalytics/analytics_VR_automation.git -b RCANALYTIC-39895
 
-Reset Credentials: In Windows 10 with Git
+Reset Credentials: In Windows 10/11 with Git
 Remove/update related Credentials stored in Windows Credentials in >>Control Panel\All Control Panel Items\Credential Manager
 
 General NPM Install
@@ -67,29 +67,38 @@ General NPM Install
 
 
 SQL
+ Flow						: FROM/JOIN → WHERE → GROUP BY → HAVING → WINDOW FUNCTIONS → SELECT → DISTINCT → ORDER BY → LIMIT
+
+ DDL
  create database            : create database <DatabaseName>;
  select database            : use <DatabaseName>;
- delete database            : drop database <DatabaseName>;
- create table               : create table <TableName>(
-                               <coloumnname1> <datatype> <constraints (not null, default ='<value>', unique, primary key)>,
-                               <coloumnname2> <datatype> <constraints>,
-                               ....
-                               <coloumnnamen> <datatype> <constraints>,
-                               primary key(<coloumnname>)
-                               );
- temporary table            : create table #<TableName>(
-                               <coloumnname1> <datatype> <constraints (not null, default ='<value>', unique, primary key)>,
-                               <coloumnname2> <datatype> <constraints>,
-                               ....
-                               <coloumnnamen> <datatype> <constraints>,
-                               primary key(<coloumnname>)
-                               );
- insert record              : insert into <TableName> values(value1, value2, ....., valueN);
- get unique values          : select distinct <ColoumnNames> from <TableName>;
- pattern search             : select * from <TableName> where <coloumnname> like '<values>( _ single character, % multiple characters)';
- between a range            : select * from <TableName> where <coloumnname> between <lower range value> and <upper range value>;
- delete record(s)           : delete from <TableName> where [Condition];
+ remove database/table		: drop database/table <Database/table Name>;
  truncate table             : truncate table <TableName>;
+ create table               : create table <TableName>(
+                               <coloumnname1> <datatype> <constraints (not null, AUTO_INCREMENT, default ='<value>', unique key, primary key, INDEX, (foreign key)references <table_name>(<ColoumnName>), check (<coloumnname> is/in ('[list]','...')))>,
+                               <coloumnname2> <datatype> <constraints>,
+                               ....
+                               <coloumnnamen> <datatype> <constraints>,
+                               constraint <constraint_name>(optional) <constraints (unique key/primary key/INDEX (<coloumnname>), foreign key (column_name) references <table_name>(<ColoumnName>) on Delete/Update Cascade, check (<coloumnname> is/in ('[list]','...')))>;
+                               ) AUTO_INCREMENT = <initial_size>;
+ temporary table            : create table #<TableName>(
+                               <coloumnname1> <datatype> <constraints (not null, AUTO_INCREMENT, default ='<value>', unique key, primary key, INDEX, foreign key, check (<coloumnname> is/in ('[list]','...')))>,
+                               <coloumnname2> <datatype> <constraints>,
+                               ....
+                               <coloumnnamen> <datatype> <constraints>,
+							   constraint <constraint_name>(optional) <constraints (unique key/primary key/INDEX (<coloumnname>), foreign key (column_name) references <table_name>(<ColoumnName>) on Delete/Update Cascade, check (<coloumnname> is/in ('[list]','...')))>;
+                               ) AUTO_INCREMENT = <initial_size>;
+ modify table               : alter table <TableName>
+ 							  rename to <new TableName>,
+							  AUTO_INCREMENT = <initial_size>,
+                              add <coloumnname> datatype,
+                              drop <coloumnname> / <constraints (unique key, primary key, foreign key, INDEX, check (<constraint_name>))>, [Check constraint_name - show create table <table_name>]
+							  modify <coloumnname> datatype,
+							  add constraint <constraint_name>(optional) <constraints (unique key/primary key/INDEX (<coloumnname>), foreign key (column_name) references <table_name>(<ColoumnName>) on Delete/Update Cascade, check (<coloumnname> is/in ('[list]','...')))>;
+							
+ DML
+ insert record              : insert into <TableName> values(value1, value2, ....., valueN);
+ delete record(s)           : delete from <TableName> where [Condition];
  update record(s)           : update <TableName> set <coloumnname1> = <value1>, <coloumnname2> = <value2> where [condition];
  merge tables               : merge <target TableName> as T
                               using <source TableName> as S
@@ -100,9 +109,11 @@ SQL
                                then insert (coloumnname1, coloumnname2,...,coloumnnamen) values(value1, value2, ....., valueN)
                               when not matched by source
                                then delete;
- modify table               : alter table <TableName>
-                              add <coloumnname> datatype,
-                              drop <coloumnname>;
+ 
+ DQL
+ get unique values          : select distinct <ColoumnNames> from <TableName>;
+ pattern search             : select * from <TableName> where <coloumnname> like '<values>( _ single character, % multiple characters)';
+ between a range            : select * from <TableName> where <coloumnname> between <lower range value> and <upper range value>;
  case statement             : select <coloumnname> =
                               case
                               when <condition_1> then <value1>
@@ -110,12 +121,71 @@ SQL
                               ....
                               else <value_n>
                               end 
-                              from <TableName>
- ternary statment           : select iif(<condition, <value1>, <value2>) as <coloumnname>
-                              from <TableName>
- schema
+                              from <TableName>;
+ ternary statment           : select iif(<condition, <value1>, <value2>) as <coloumnname>;
+                              from <TableName>;
+ limit						: select * from <TableName> limit <size>;
+ limit start & size			: select * from <TableName> limit <start> <size>;
+ escape/ignore characters	: select * from <TableName> where <coloumnname> like '<txt>\'<txt>';
+ String
+  concat					: select concat(<coloumnname/txt>,<coloumnname/txt>,<coloumnname/txt>);
+  length					: select length(<coloumnname/txt>);
+  lower & upper				: select lower/upper(<coloumnname/txt>);
+  substring					: select substring(<coloumnname/txt>, start, end);
+  trim						: select trim/rtrim/ltrim(<coloumnname/txt>);
+  replace					: select replace(<coloumnname/txt>, target-<coloumnname/txt>, replacement-<coloumnname/txt>);
+  locate					: select locate(target word-<coloumnname/txt>, <coloumnname/txt>);
+  instr						: select instr(<coloumnname/txt>, target word-<coloumnname/txt>);
+ Pattern Matching			
+  0-n characters			: select * from <TableName> where <coloumnname> like '%<txt>%';
+  1 character				: select * from <TableName> where <coloumnname> like '_';
+  4-n characters			: select * from <TableName> where <coloumnname> like '____<txt>';
+  email validation			: select * from <TableName> where <coloumnname> like '^_%@_%.__%';
+  end with abc_a			: select * from <TableName> where <coloumnname> like '%\__';
+  Regular Expression(REGEXP)
+   start with & group of 
+   characters				: select * from <TableName> where <coloumnname> REGEXP '^[<characters>]';
+   end with & group of 
+   characters				: select * from <TableName> where <coloumnname> REGEXP '[<characters>]$';
+   1 character & group of 
+   characters				: select * from <TableName> where <coloumnname> REGEXP '.[<characters>]';
+   match group of characters within []
+    alphabets				: select * from <TableName> where <coloumnname> REGEXP '[A-Za-z]';
+	numbers					: select * from <TableName> where <coloumnname> REGEXP '[0-9]';
+	special characters		: select * from <TableName> where <coloumnname> REGEXP '[!@#$%^&*()_]';
+    0-n						: select * from <TableName> where <coloumnname> REGEXP '^[<characters>]*$';
+    1-n						: select * from <TableName> where <coloumnname> REGEXP '^[<characters>]+$';
+    0-1						: select * from <TableName> where <coloumnname> REGEXP '^[<characters>]?$';
+	concate expressions		: select * from <TableName> where <coloumnname> REGEXP '^[<characters>]+@[<characters>]\.[<characters>]?';
+	length of group
+	 exact size				: select * from <TableName> where <coloumnname> REGEXP '[<characters>]{<exactly size>}';
+	 minimum size			: select * from <TableName> where <coloumnname> REGEXP '[<characters>]{<minimum size>,}';
+	Negate/Not in			: select * from <TableName> where <coloumnname> REGEXP '^[<^characters>]$';
+	escape/ignore characters: select * from <TableName> where <coloumnname> REGEXP '^[<\\<text><characters>]$';
+
+   
+
+ TCL(Transactional Control Language) DML by default goes to open 
+ Commits the code			: Commit;
+ Roll back if not committed	: Rollback;
+ Applly commit automatically: Auto commit;
+
+ DCL(Data Control Language) 
+ Create user				: Create user '<name>'@'<Hostname>' identified by '<password>'
+ Drop user					: Drop user '<name>'@'<Hostname>'
+ Grant/Revoke				: Grand/Revoke select/drop/delete table name
+ information_schema - catalog like Database
+ information_schema->tables - table containing table information
+ 
+ schema(metadata)
+  lists all the table names	: show tables;
+  display create table 
+  statments with constraints: show create table <table_name>;
+  all tables info			: select * from table_constraints/tables.information_schema where table_name = <table_name>;
+  describe table			: describe <TableName>;
+							  desc <TableName>;
   create                    : create schema <schema_name>;
-  create and create schema  : create schema if not exists <schema_name>;
+  create schema with check	: create schema if not exists <schema_name>;
  user defined functions (always returns a value)
   scalar valued functions   : create function <function_name>(@<parameter_name> datatype,...)
                               returns return_datatype
@@ -148,7 +218,7 @@ SQL
                                 rollback transaction
                                 print 'transaction rollback' / error_message()
                               end catch
- rank
+ Window Function
   rank                      : select rank() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
   dense_rank
   (does not skip rank)      : select dense_rank() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
@@ -156,7 +226,7 @@ SQL
   (rank based on rank range): select ntile(<range>) over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
   row_number
   (generates unique ranks)  : select row_number() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
- trigger (event)            : create/alter trigger <trigger_name>
+ Trigger (event)            : create/alter trigger <trigger_name>
                               on <TableName>
                               for/after insert/update/delete
                               as
@@ -170,6 +240,7 @@ SQL
 
 
 Unix / Linux
+
  general syntax             : <command> -option1 -optionN or -option1optionN arguments
  navgate to c drive         : cd mnt/c
  ignore white space in btw  : \
