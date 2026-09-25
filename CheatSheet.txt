@@ -112,21 +112,27 @@ SQL
  
  DQL
  get unique values          : select distinct <ColoumnNames> from <TableName>;
+ alternative value			: select coalesce(<coloumnname1>,<coloumnname2>) from <TableName>;
  pattern search             : select * from <TableName> where <coloumnname> like '<values>( _ single character, % multiple characters)';
  between a range            : select * from <TableName> where <coloumnname> between <lower range value> and <upper range value>;
- case statement             : select <coloumnname> =
+ case statement             : select
                               case
-                              when <condition_1> then <value1>
-                              when <condition_2> then <value2>
-                              ....
-                              else <value_n>
-                              end 
+                              	when <condition_1> then <value1>
+                              	when <condition_2> then <value2>
+                              	....
+                              	else <value_n>
+                              end as <coloumnname>
                               from <TableName>;
  ternary statment           : select iif(<condition, <value1>, <value2>) as <coloumnname>;
                               from <TableName>;
  limit						: select * from <TableName> limit <size>;
  limit start & size			: select * from <TableName> limit <start> <size>;
  escape/ignore characters	: select * from <TableName> where <coloumnname> like '<txt>\'<txt>';
+ Union
+  union distinct			: select * from <TableName1> union select * from <TableNameN>;
+  union all/full			: select * from <TableName1> union all select * from <TableNameN>;
+  common/inner				: select * from <TableName1> intersect select * from <TableNameN>;
+  not common/left semi join	: select * from <TableName1> except select * from <TableNameN>;
  String
   concat					: select concat(<coloumnname/txt>,<coloumnname/txt>,<coloumnname/txt>);
   length					: select length(<coloumnname/txt>);
@@ -162,6 +168,25 @@ SQL
 	 minimum size			: select * from <TableName> where <coloumnname> REGEXP '[<characters>]{<minimum size>,}';
 	Negate/Not in			: select * from <TableName> where <coloumnname> REGEXP '^[<^characters>]$';
 	escape/ignore characters: select * from <TableName> where <coloumnname> REGEXP '^[<\\<text><characters>]$';
+ Date Time
+  current date yyyy-mm-dd	: select current_date();
+  current time HH:mm:ss		: select current_time();
+  current date and time
+  yyyy-mm-dd HH:mm:ss		: select current_timestamp();
+  extract date/time			: select date/time('2026-07-26 04:32:05') as date/time_only;
+  extract year/month/day/week
+  							: select extract(Year/Month/Day/week from '2026-07-26') as year/month/day/week_only;
+  get day/month/monthname/week
+  							: select day/month/monthname/week('2026-07-26 04:32:05') as day/month/monthname/week_only;
+  add/subtract date 		: select date_add/sub(<date column_name>, interval <size> day/month);
+  date difference number	: select datediff(<date column_name1>, <date column_name2>);
+  date formatted			: select date_format(<date column_name>, '%<Y/y/m/M/D>');
+  Unix date numbers 
+  -default from 1st Jan 1970: select unix_timestamp(<date column_name>);
+  Unix time to datetime format: select unix_timestamp(<unix datetime column_name>);
+ Cast
+  date						: select year/day/month/monthname/week(cast(<string column_name> as date));
+  decimal					: select cast(<string column_name> as decimal(<size>,<precision>));
 
    
 
@@ -177,7 +202,7 @@ SQL
  information_schema - catalog like Database
  information_schema->tables - table containing table information
  
- schema(metadata)
+ Schema(metadata)
   lists all the table names	: show tables;
   display create table 
   statments with constraints: show create table <table_name>;
@@ -186,7 +211,7 @@ SQL
 							  desc <TableName>;
   create                    : create schema <schema_name>;
   create schema with check	: create schema if not exists <schema_name>;
- user defined functions (always returns a value)
+ User Defined Functions (always returns a value)
   scalar valued functions   : create function <function_name>(@<parameter_name> datatype,...)
                               returns return_datatype
                               as
@@ -200,7 +225,7 @@ SQL
                               return (<sql query>)
                               end
                               to execute: select * from <schema_name>.<function_name>(<parameter_name1>,...);
- stored procedure
+ Stored Procedure
  (Prepared sql query)       : create procedure <procedure_name> @<parameter_name1> <datatype>, ...
                               as
                               <sql query where <coloumnname> = @<parameter_name1>>
