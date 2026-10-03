@@ -133,6 +133,16 @@ SQL
   union all/full			: select * from <TableName1> union all select * from <TableNameN>;
   common/inner				: select * from <TableName1> intersect select * from <TableNameN>;
   not common/left semi join	: select * from <TableName1> except select * from <TableNameN>;
+ CTE (Common Table Expression)
+  nested CTE                : with <CTE_Name1> as (select * from <TableName1>),
+                              ........,
+                              <CTE_NameN> as (select * from <CTE_NameN-1>)
+                              select * from <CTE_NameN>;
+  recursive CTE             : with <CTE_Name> as (
+                                select * from <TableName1> --anchor member
+                                union all
+                                select * from <CTE_Name>) --recursive member
+                              select * from <CTE_Name>;
  String
   concat					: select concat(<coloumnname/txt>,<coloumnname/txt>,<coloumnname/txt>);
   length					: select length(<coloumnname/txt>);
@@ -243,14 +253,15 @@ SQL
                                 rollback transaction
                                 print 'transaction rollback' / error_message()
                               end catch
- Window Function
-  rank                      : select rank() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+ Window Functions
+  rank                      : select rank() over(partition by <optional used entire table:coloumnname1> order by <optional but nonlogical:coloumnname2> asc/desc) rank from <TableName>
   dense_rank
-  (does not skip rank)      : select dense_rank() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  (does not skip rank)      : select dense_rank() over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
   ntile
-  (rank based on rank range): select ntile(<range>) over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  (rank based on rank range): select ntile(<range>) over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
   row_number
-  (generates unique ranks)  : select row_number() over(partition by <coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  (generates unique ranks)  : select row_number() over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  lead & lag(next & prev)   : select lead/lag(<coloumnname>, <optional:size>, <optional:defualt value/coloumnname>) over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
  Trigger (event)            : create/alter trigger <trigger_name>
                               on <TableName>
                               for/after insert/update/delete
