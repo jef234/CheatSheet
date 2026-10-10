@@ -95,6 +95,7 @@ SQL
                               drop <coloumnname> / <constraints (unique key, primary key, foreign key, INDEX, check (<constraint_name>))>, [Check constraint_name - show create table <table_name>]
 							  modify <coloumnname> datatype,
 							  add constraint <constraint_name>(optional) <constraints (unique key/primary key/INDEX (<coloumnname>), foreign key (column_name) references <table_name>(<ColoumnName>) on Delete/Update Cascade, check (<coloumnname> is/in ('[list]','...')))>;
+ index
 							
  DML
  insert record              : insert into <TableName> values(value1, value2, ....., valueN);
@@ -143,6 +144,17 @@ SQL
                                 union all
                                 select * from <CTE_Name>) --recursive member
                               select * from <CTE_Name>;
+ Window Functions
+  rank                      : select rank() over(partition by <optional used entire table:coloumnname1> order by <optional but nonlogical:coloumnname2> asc/desc) rank from <TableName>
+  dense_rank
+  (does not skip rank)      : select dense_rank() over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  ntile
+  (rank based on rank range): select ntile(<range>) over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  row_number
+  (generates unique ranks)  : select row_number() over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  lead & lag(next & prev)   : select lead/lag(<coloumnname>, <optional:size>, <optional:defualt value/coloumnname>) over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
+  running totals/rows clause - UNBOUNDED PRECEDING → N PRECEDING → CURRENT ROW → N FOLLOWING → UNBOUNDED FOLLOWING
+  							: select agg/sum(<ColoumnNames>) over(partition by <coloumnname1> order by <coloumnname2> asc/desc rows between <size/default for asc:unbounded> preceding/current row/<size/default:unbounded for desc> following and ....) total from <TableName>
  String
   concat					: select concat(<coloumnname/txt>,<coloumnname/txt>,<coloumnname/txt>);
   length					: select length(<coloumnname/txt>);
@@ -253,15 +265,6 @@ SQL
                                 rollback transaction
                                 print 'transaction rollback' / error_message()
                               end catch
- Window Functions
-  rank                      : select rank() over(partition by <optional used entire table:coloumnname1> order by <optional but nonlogical:coloumnname2> asc/desc) rank from <TableName>
-  dense_rank
-  (does not skip rank)      : select dense_rank() over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
-  ntile
-  (rank based on rank range): select ntile(<range>) over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
-  row_number
-  (generates unique ranks)  : select row_number() over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
-  lead & lag(next & prev)   : select lead/lag(<coloumnname>, <optional:size>, <optional:defualt value/coloumnname>) over(partition by <optional:coloumnname1> order by <coloumnname2> asc/desc) rank from <TableName>
  Trigger (event)            : create/alter trigger <trigger_name>
                               on <TableName>
                               for/after insert/update/delete
